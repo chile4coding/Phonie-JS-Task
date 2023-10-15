@@ -89,5 +89,6 @@ phoneNumberInput.addEventListener("input", (e) => {
       checkMobileNetwork(nextThreeDigit.join(""))
     );
     displayNetwork(asss);
-  }
+  }else if((firstFourDigit === "+234" && value.length < 8) || (frstDigit === "0" && value.length < 4)){
+    network.innerHTML = "";
 });
