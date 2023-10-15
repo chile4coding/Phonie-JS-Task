@@ -26,8 +26,6 @@ body {
   padding: 20px;
   background-color: #3498db;
   color: white;
- 
-
 }
 
 .steps {
@@ -126,7 +124,6 @@ input {
   border: 1px solid black;
   height: 100%;
   margin: auto auto;
-
 }
 
 .network_title {
