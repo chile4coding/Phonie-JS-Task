@@ -16,7 +16,7 @@ const networkLogo = document.querySelector("#network_logo");
 const networkTitle = document.querySelector(".network_title");
 const phoneNumberInput = document.querySelector("#phone");
 network.innerHTML =
-  "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>";
+  "<p style='text-align:center;'>Enter a valid phone number to detect the network provider</p>";
 
 let mtnImageAndTitle,
   airtelImageAndTitle,
@@ -24,7 +24,6 @@ let mtnImageAndTitle,
   gloImageAndTitle;
 function checkMobileNetwork(digit) {
   const toNumber = Number(digit);
-
 
 
   const checkMtn = mtn.find((num) => num === toNumber);
@@ -77,10 +76,10 @@ function displayNetwork(image) {
 }
 
 phoneNumberInput.addEventListener("input", (e) => {
-mtnImageAndTitle = ""
-airtelImageAndTitle=""
- nMobileImageAndTitle=""
-  gloImageAndTitle=""
+mtnImageAndTitle = "";
+airtelImageAndTitle="";
+ nMobileImageAndTitle="";
+  gloImageAndTitle="";
   const value = phoneNumberInput.value;
 
   const firstFourDigit = value.slice(0, 4);
