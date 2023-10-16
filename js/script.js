@@ -13,10 +13,10 @@ const nineMobile = [809, 818, 817, 909, 908];
 const glo = [805, 807, 705, 815, 811, 905, 915];
 const network = document.querySelector(".network");
 const networkLogo = document.querySelector("#network_logo");
-const networkTitle = document.querySelector(".network_title");
+const networkWriteUp = document.querySelector("#networkWriteUp");
 const phoneNumberInput = document.querySelector("#phone");
-network.innerHTML =
-  "<p style='text-align:center;'>Enter a valid phone number to detect the network provider</p>";
+networkWriteUp.style.display = "block";
+networkLogo.style.display = "none";
 
 let mtnImageAndTitle,
   airtelImageAndTitle,
@@ -25,12 +25,12 @@ let mtnImageAndTitle,
 function checkMobileNetwork(digit) {
   const toNumber = Number(digit);
 
-
   const checkMtn = mtn.find((num) => num === toNumber);
+  console.log(checkMtn);
   if (checkMtn) {
     return (mtnImageAndTitle = "/assets/images/mtn.png+MTN");
   }
-
+  console.log("here i came here");
   const checkGlo = glo.find((num) => num === toNumber);
 
   if (checkGlo) {
@@ -56,30 +56,19 @@ function checkMobileNetwork(digit) {
 }
 
 function displayNetwork(image) {
+  console.log(image, "inside image");
   if (!image) return;
   const [logo, title] = image.split("+");
-  const elm = ` <section class=" network_logo--container">
-                                <img id="network_logo"  alt=" Network logo" src=${logo}   >
-                
-                
-                            </section>
-                            
-                            <section class=" network_title">
-                             
-                                <h2>${title}</h2>
-                
-                
-                            </section>
-                
-                       `;
-  network.innerHTML = elm;
+  networkWriteUp.style.display = "none";
+  networkLogo.setAttribute("src", logo);
+  networkLogo.style.display = "block";
 }
 
 phoneNumberInput.addEventListener("input", (e) => {
-mtnImageAndTitle = "";
-airtelImageAndTitle="";
- nMobileImageAndTitle="";
-  gloImageAndTitle="";
+  mtnImageAndTitle = "";
+  airtelImageAndTitle = "";
+  nMobileImageAndTitle = "";
+  gloImageAndTitle = "";
   const value = phoneNumberInput.value;
 
   const firstFourDigit = value.slice(0, 4);
@@ -88,10 +77,11 @@ airtelImageAndTitle="";
   const secondThreeDigit = value.slice(4, 7).split("");
   const secondFourdigitfromCountryCode = value.slice(4, 8).split("");
   const nextFourDigitFromNormalPhone = value.slice(1, 5).split("");
-  if (firstFourDigit === "+234" && secondFourdigitfromCountryCode.length === 4) {
-
+  if (
+    firstFourDigit === "+234" &&
+    secondFourdigitfromCountryCode.length === 4
+  ) {
     const numCode = checkMobileNetwork(secondFourdigitfromCountryCode.join(""));
-    console.log(numCode)
     displayNetwork(numCode);
   } else if (firstFourDigit === "+234" && secondThreeDigit.length === 3) {
     const numCode = checkMobileNetwork(secondThreeDigit.join(""));
@@ -106,13 +96,13 @@ airtelImageAndTitle="";
     displayNetwork(numCode);
   }
   if (firstFourDigit === "+234" && value.length < 7) {
-     network.innerHTML =
-       "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>"; // clear the image if input is less than 7
+    networkWriteUp.style.display = "block";
+    networkLogo.style.display = "none";
+    // clear the image if input is less than 7
   }
   if (frstDigit === "0" && value.length < 4) {
-    network.innerHTML =
-      "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>";
+    networkWriteUp.style.display = "block";
+    networkLogo.style.display = "none";
     // clear the image if input is less than 6
-   } 
-
+  }
 });
