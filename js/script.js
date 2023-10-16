@@ -45,7 +45,7 @@ function checkMobileNetwork(digit) {
     return (airtelImageAndTitle = "/assets/images/airtel.jpg+Airtel");
   }
 
-  return mtnImageAndTitle || airtelImageAndTitle || gloImageAndTitle || n;
+  return mtnImageAndTitle || airtelImageAndTitle || gloImageAndTitle || nMobileImageAndTitle;
 }
 
 function displayNetwork(image) {
@@ -69,10 +69,10 @@ function displayNetwork(image) {
 }
 
 phoneNumberInput.addEventListener("input", function (e) {
-  m = "";
-  n = "";
-  a = "";
-  g = "";
+  mtnImageAndTitle = "";
+  nMobileImageAndTitle = "";
+  airtelImageAndTitle = "";
+  gloImageAndTitle = "";
   const value = phoneNumberInput.value;
   const firstFourDigit = value.slice(0, 4);
   const frstDigit = value.slice(0, 1);
