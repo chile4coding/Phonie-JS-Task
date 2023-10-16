@@ -37,7 +37,7 @@ function checkMobileNetwork(digit) {
   }
   const checkAirtel = airtel.find((num) => num === toNumber);
   if (checkAirtel) {
-    return (a = "assets/images/airtel.jpg+Airtel");
+    return (a = "/assets/images/airtel.jpg+Airtel");
   }
 
   return m || a || g || n;
@@ -93,4 +93,5 @@ phoneNumberInput.addEventListener("input", (e) => {
   // else if((firstFourDigit === "+234" && value.length < 8) || (frstDigit === "0" && value.length < 4)){
   //   network.innerHTML = ""
   // }
+
 });
