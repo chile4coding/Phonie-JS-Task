@@ -1,12 +1,9 @@
-//  check the input if it begin with +234
-//  it it does then check the next the digits to confirm the network
-//  it it begin with 0 then check the next 3 digit to confirm the mobile network
-//  else display not  nigerian mobile network
+//  check the input if it begins with +234
+//  if it does then check the next digits to confirm the network
+//  if it begins with 0 then check the next 3 digits to confirm the mobile network
+//  else display not nigerian mobile network
 
-
-
-
-// dataset to get the network operators inial digits
+// dataset to get the network operators initial digits
 const mtn = [
   803, 806, 703, 706, 813, 816, 810, 814, 903, 906, 913, 916, 7025, 7026, 704,
 ];
@@ -22,11 +19,17 @@ let mtnImageAndTitle, airtelImageAndTitle, nMobileImageAndTitle, gloImageAndTitl
 function checkMobileNetwork(digit) {
   const toNumber = Number(digit);
 
+
   const checkmtn = mtn.find((num) => {
     return num === toNumber;
   });
   if (checkmtn) {
     return (mtnImageAndTitle = "/assets/images/mtn.png+MTN");
+
+  const checkMtn = mtn.find((num) => num === toNumber);
+  if (checkMtn) {
+    return (m = "/assets/images/mtn.png+MTN");
+
   }
 
   const checkGlo = glo.find((num) => num === toNumber);
@@ -68,10 +71,10 @@ function displayNetwork(image) {
   network.innerHTML = elm;
 }
 
-phoneNumberInput.addEventListener("input", function (e) {
+phoneNumberInput.addEventListener("input", (e) => {
   m = "";
-  n = "";
   a = "";
+  n = "";
   g = "";
   const value = phoneNumberInput.value;
   const firstFourDigit = value.slice(0, 4);
@@ -97,6 +100,7 @@ phoneNumberInput.addEventListener("input", function (e) {
     displayNetwork(numCode);
   }
 
+
   if (firstFourDigit === "+234" && value.length <7){
     network.innerHTML=""; // clear the image if input is less than 7
     
@@ -105,4 +109,8 @@ phoneNumberInput.addEventListener("input", function (e) {
     network.innerHTML="";// clear the image if input is less than 6
 }
   
+  // else if((firstFourDigit === "+234" && value.length < 8) || (frstDigit === "0" && value.length < 4)){
+  //   network.innerHTML = ""
+  // }
+
 });

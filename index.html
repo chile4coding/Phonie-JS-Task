@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Add stylesheet  -->
-    <link rel="stylesheet" href="/css/stylesheet.css">
+    <link rel="stylesheet" href="/zcss/stylesheet.css" />
     <!-- add script -->
-<script  defer src="/js/script.js"></script>
+    <script defer src="/js/script.js"></script>
     <title>Personal Info Form</title>
-
-</head>
-<body>
+  </head>
+  <body>
     <main class="main-card">
-        <div class="left-card">
-            <div class=" network">
-                 
-                         
+      <div class="left-card">
+        <div class="network"></div>
 
-            </div>
-
-
-            <!-- Steps aligned vertically on the left side -->
-            <!-- <div class="steps">
+        <!-- Steps aligned vertically on the left side -->
+        <!-- <div class="steps">
                 <div class="step">1</div>
                 <div class="step-info">
                     <div class="step-info-text">Step 1</div>
@@ -45,6 +39,7 @@
                     <div class="step-info-text">Step 4</div>
                     <div class="step-info-text">Summary</div>
                 </div> -->
+
             <!-- </div> -->
         </div>
        
@@ -63,10 +58,40 @@
                 <div class="btn_container">
                     <button type="submit">Sign up</button>
 
-                </div>
-            </form>
-        </div>
+        <!-- </div> -->
+      </div>
+
+
+      <div class="form-card">
+        <h3>Personal Information</h3>
+        <form>
+          <!-- turned off autocomplete as it is difficult to track event changes when #phone is autofilled in the browser -->
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="phone">Phone Number:</label>
+          <input
+            type="text"
+            id="phone"
+            name="phon"
+            pattern="^(?:\+234\d{10}|0\d{10})$"
+            title="Enter a phone number with a country code"
+            autocomplete="tel-country-code"
+            required
+          />
+          <br />
+          <div class="btn_container">
+            <button type="submit">Sign up</button>
+          </div>
+        </form>
+      </div>
     </main>
+
 </body>
 </html>
+
+
 
