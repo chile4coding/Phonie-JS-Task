@@ -16,7 +16,7 @@ const networkLogo = document.querySelector("#network_logo");
 const networkTitle = document.querySelector(".network_title");
 const phoneNumberInput = document.querySelector("#phone");
 network.innerHTML =
-  "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>";
+  "<p style='text-align:center;'>Enter a valid phone number to detect the network provider</p>";
 
 let mtnImageAndTitle,
   airtelImageAndTitle,
@@ -24,7 +24,6 @@ let mtnImageAndTitle,
   gloImageAndTitle;
 function checkMobileNetwork(digit) {
   const toNumber = Number(digit);
-
 
 
   const checkMtn = mtn.find((num) => num === toNumber);
@@ -77,25 +76,25 @@ function displayNetwork(image) {
 }
 
 phoneNumberInput.addEventListener("input", (e) => {
-mtnImageAndTitle = ""
-airtelImageAndTitle=""
- nMobileImageAndTitle=""
-  gloImageAndTitle=""
+mtnImageAndTitle = "";
+airtelImageAndTitle="";
+ nMobileImageAndTitle="";
+  gloImageAndTitle="";
   const value = phoneNumberInput.value;
 
   const firstFourDigit = value.slice(0, 4);
   const frstDigit = value.slice(0, 1);
   const nextThreeDigit = value.slice(1, 4).split("");
-  const nextFourDigit = value.slice(4, 7).split("");
-  const nextFourdigitfromCountryCode = value.slice(4, 8).split("");
+  const secondThreeDigit = value.slice(4, 7).split("");
+  const secondFourdigitfromCountryCode = value.slice(4, 8).split("");
   const nextFourDigitFromNormalPhone = value.slice(1, 5).split("");
-  if (firstFourDigit === "+234" && nextFourdigitfromCountryCode.length === 4) {
+  if (firstFourDigit === "+234" && secondFourdigitfromCountryCode.length === 4) {
 
-    const numCode = checkMobileNetwork(nextFourdigitfromCountryCode.join(""));
+    const numCode = checkMobileNetwork(secondFourdigitfromCountryCode.join(""));
     console.log(numCode)
     displayNetwork(numCode);
-  } else if (firstFourDigit === "+234" && nextFourDigit.length === 3) {
-    const numCode = checkMobileNetwork(nextFourDigit.join(""));
+  } else if (firstFourDigit === "+234" && secondThreeDigit.length === 3) {
+    const numCode = checkMobileNetwork(secondThreeDigit.join(""));
     displayNetwork(numCode);
   } else if (frstDigit === "0" && nextFourDigitFromNormalPhone.length === 4) {
     const numCode = checkMobileNetwork(nextFourDigitFromNormalPhone.join(""));
