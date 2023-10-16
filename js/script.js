@@ -15,32 +15,40 @@ const networkLogo = document.querySelector("#network_logo");
 const networkTitle = document.querySelector(".network_title");
 const phoneNumberInput = document.querySelector("#phone");
 
-let m, a, n, g;
+let mtnImageAndTitle, airtelImageAndTitle, nMobileImageAndTitle, gloImageAndTitle;
 function checkMobileNetwork(digit) {
   const toNumber = Number(digit);
+
+
+  const checkmtn = mtn.find((num) => {
+    return num === toNumber;
+  });
+  if (checkmtn) {
+    return (mtnImageAndTitle = "/assets/images/mtn.png+MTN");
 
   const checkMtn = mtn.find((num) => num === toNumber);
   if (checkMtn) {
     return (m = "/assets/images/mtn.png+MTN");
+
   }
 
   const checkGlo = glo.find((num) => num === toNumber);
 
   if (checkGlo) {
-    return (g = "/assets/images/glo.png+Glo");
+    return (gloImageAndTitle = "/assets/images/glo.png+Glo");
   }
 
   const checkNineMobile = nineMobile.find((num) => num === toNumber);
 
   if (checkNineMobile) {
-    return (n = "/assets/images/9mobile.jpeg+9Mobile");
+    return (nMobileImageAndTitle = "/assets/images/9mobile.jpeg+9Mobile");
   }
   const checkAirtel = airtel.find((num) => num === toNumber);
   if (checkAirtel) {
-    return (a = "/assets/images/airtel.jpg+Airtel");
+    return (airtelImageAndTitle = "/assets/images/airtel.jpg+Airtel");
   }
 
-  return m || a || g || n;
+  return mtnImageAndTitle || airtelImageAndTitle || gloImageAndTitle || n;
 }
 
 function displayNetwork(image) {
@@ -75,21 +83,32 @@ phoneNumberInput.addEventListener("input", (e) => {
   const nextFourDigit = value.slice(4, 7).split("");
   const nextFourdigitfromCountryCode = value.slice(4, 8).split("");
   const nextFourDigitFromNormalPhone = value.slice(1, 5).split("");
+  console.log(nextThreeDigit,nextFourDigit,nextFourDigitFromNormalPhone,nextFourdigitfromCountryCode);
   if (firstFourDigit === "+234" && nextFourdigitfromCountryCode.length === 4) {
-    const ans = checkMobileNetwork(nextFourdigitfromCountryCode.join(""));
-    displayNetwork(ans);
+    const numCode = checkMobileNetwork(nextFourdigitfromCountryCode.join(""));
+    displayNetwork(numCode);
   } else if (firstFourDigit === "+234" && nextFourDigit.length === 3) {
-    const anss = checkMobileNetwork(nextFourDigit.join(""));
-    displayNetwork(anss);
+    const numCode  = checkMobileNetwork(nextFourDigit.join(""));
+    displayNetwork(numCode);
   } else if (frstDigit === "0" && nextFourDigitFromNormalPhone.length === 4) {
-    const myass = checkMobileNetwork(nextFourDigitFromNormalPhone.join(""));
-    displayNetwork(myass);
+    const numCode = checkMobileNetwork(nextFourDigitFromNormalPhone.join(""));
+    displayNetwork(numCode);
   } else if (frstDigit === "0" && nextThreeDigit.length === 3) {
-    const asss = checkMobileNetwork(
+    const numCode = checkMobileNetwork(
       checkMobileNetwork(nextThreeDigit.join(""))
     );
-    displayNetwork(asss);
+    displayNetwork(numCode);
   }
+
+
+  if (firstFourDigit === "+234" && value.length <7){
+    network.innerHTML=""; // clear the image if input is less than 7
+    
+  }
+  if (frstDigit === "0" && value.length < 4){
+    network.innerHTML="";// clear the image if input is less than 6
+}
+  
   // else if((firstFourDigit === "+234" && value.length < 8) || (frstDigit === "0" && value.length < 4)){
   //   network.innerHTML = ""
   // }
