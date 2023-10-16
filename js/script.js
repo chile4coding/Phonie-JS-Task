@@ -25,13 +25,11 @@ let mtnImageAndTitle,
 function checkMobileNetwork(digit) {
   const toNumber = Number(digit);
 
-  const checkmtn = mtn.find((num) => {
-    return num === toNumber;
-  });
+
 
   const checkMtn = mtn.find((num) => num === toNumber);
   if (checkMtn) {
-    return (m = "/assets/images/mtn.png+MTN");
+    return (mtnImageAndTitle = "/assets/images/mtn.png+MTN");
   }
 
   const checkGlo = glo.find((num) => num === toNumber);
@@ -50,7 +48,12 @@ function checkMobileNetwork(digit) {
     return (airtelImageAndTitle = "/assets/images/airtel.jpg+Airtel");
   }
 
-  return mtnImageAndTitle || airtelImageAndTitle || gloImageAndTitle || n;
+  return (
+    mtnImageAndTitle ||
+    airtelImageAndTitle ||
+    gloImageAndTitle ||
+    nMobileImageAndTitle
+  );
 }
 
 function displayNetwork(image) {
@@ -74,10 +77,10 @@ function displayNetwork(image) {
 }
 
 phoneNumberInput.addEventListener("input", (e) => {
-  m = "";
-  a = "";
-  n = "";
-  g = "";
+mtnImageAndTitle = ""
+airtelImageAndTitle=""
+ nMobileImageAndTitle=""
+  gloImageAndTitle=""
   const value = phoneNumberInput.value;
 
   const firstFourDigit = value.slice(0, 4);
@@ -87,7 +90,9 @@ phoneNumberInput.addEventListener("input", (e) => {
   const nextFourdigitfromCountryCode = value.slice(4, 8).split("");
   const nextFourDigitFromNormalPhone = value.slice(1, 5).split("");
   if (firstFourDigit === "+234" && nextFourdigitfromCountryCode.length === 4) {
+
     const numCode = checkMobileNetwork(nextFourdigitfromCountryCode.join(""));
+    console.log(numCode)
     displayNetwork(numCode);
   } else if (firstFourDigit === "+234" && nextFourDigit.length === 3) {
     const numCode = checkMobileNetwork(nextFourDigit.join(""));
@@ -102,17 +107,13 @@ phoneNumberInput.addEventListener("input", (e) => {
     displayNetwork(numCode);
   }
   if (firstFourDigit === "+234" && value.length < 7) {
-    network.innerHTML = ""; // clear the image if input is less than 7
+     network.innerHTML =
+       "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>"; // clear the image if input is less than 7
   }
   if (frstDigit === "0" && value.length < 4) {
     network.innerHTML =
       "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>";
     // clear the image if input is less than 6
-  } else if (
-    (firstFourDigit === "+234" && value.length < 8) ||
-    (frstDigit === "0" && value.length < 4)
-  ) {
-    network.innerHTML =
-      "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>";
-  }
+   } 
+
 });
