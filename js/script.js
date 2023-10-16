@@ -94,7 +94,7 @@ airtelImageAndTitle="";
     console.log(numCode)
     displayNetwork(numCode);
   } else if (firstFourDigit === "+234" && secondThreeDigit.length === 3) {
-    const numCode = checkMobileNetwork(nextFourDigit.join(""));
+    const numCode = checkMobileNetwork(secondThreeDigit.join(""));
     displayNetwork(numCode);
   } else if (frstDigit === "0" && nextFourDigitFromNormalPhone.length === 4) {
     const numCode = checkMobileNetwork(nextFourDigitFromNormalPhone.join(""));
