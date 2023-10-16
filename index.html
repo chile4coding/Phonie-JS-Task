@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Add stylesheet  -->
-    <link rel="stylesheet" href="/zcss/stylesheet.css" />
+    <link rel="stylesheet" href="/css/stylesheet.css" />
     <!-- add script -->
     <script defer src="/js/script.js"></script>
     <title>Personal Info Form</title>
@@ -13,59 +13,11 @@
     <main class="main-card">
       <div class="left-card">
         <div class="network"></div>
-
-        <!-- Steps aligned vertically on the left side -->
-        <!-- <div class="steps">
-                <div class="step">1</div>
-                <div class="step-info">
-                    <div class="step-info-text">Step 1</div>
-                    <div class="step-info-text">Your Info</div>
-                </div>
-                
-                <div class="step">2</div>
-                <div class="step-info">
-                    <div class="step-info-text">Step 2</div>
-                    <div class="step-info-text">Select Plan</div>
-                </div>
-                
-                <div class="step">3</div>
-                <div class="step-info">
-                    <div class="step-info-text">Step 3</div>
-                    <div class="step-info-text">Add-ons</div>
-                </div>
-                
-                <div class="step">4</div>
-                <div class="step-info">
-                    <div class="step-info-text">Step 4</div>
-                    <div class="step-info-text">Summary</div>
-                </div> -->
-
-            <!-- </div> -->
-        </div>
-       
-        <div class="form-card">
-            <h3>Personal Information</h3>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" pattern="^(?:\+234\d{10}|0\d{10})$" title="Enter a phone number with a country code"  required>
-                <br>         
-                <div class="btn_container">
-                    <button type="submit">Sign up</button>
-
-        <!-- </div> -->
       </div>
-
 
       <div class="form-card">
         <h3>Personal Information</h3>
         <form>
-          <!-- turned off autocomplete as it is difficult to track event changes when #phone is autofilled in the browser -->
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required />
 
@@ -76,12 +28,10 @@
           <input
             type="text"
             id="phone"
-            name="phon"
+            name="phone"
             pattern="^(?:\+234\d{10}|0\d{10})$"
-            title="Enter a phone number with a country code"
-            autocomplete="tel-country-code"
-            required
-          />
+            title="Enter a phone number with Nigeria country code e.g +234 or that begin with 0"
+            required />
           <br />
           <div class="btn_container">
             <button type="submit">Sign up</button>
@@ -89,9 +39,5 @@
         </form>
       </div>
     </main>
-
-</body>
+  </body>
 </html>
-
-
-

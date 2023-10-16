@@ -28,55 +28,7 @@ body {
   color: white;
 }
 
-.steps {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
 
-.step {
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  border: 2px solid white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 10px;
-}
-
-.step-title {
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 5px;
-}
-
-.step-label {
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 5px;
-}
-
-.step-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.step-info-text {
-  color: white;
-  font-weight: bold;
-  text-align: center;
-}
 
 .form-card {
   flex: 4;
@@ -92,20 +44,26 @@ form {
 
 .form-card input {
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+    outline: none;
+
 }
 input {
   width: 100%;
+}
+input:hover, input:focus{
+      outline:  1px solid yellow;
+
 }
 
 .form-card button {
   background-color: #3498db;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 5px;
   cursor: pointer;
   display: block;

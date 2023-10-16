@@ -4,6 +4,7 @@
 //  else display not nigerian mobile network
 
 // dataset to get the network operators initial digits
+
 const mtn = [
   803, 806, 703, 706, 813, 816, 810, 814, 903, 906, 913, 916, 7025, 7026, 704,
 ];
@@ -14,22 +15,23 @@ const network = document.querySelector(".network");
 const networkLogo = document.querySelector("#network_logo");
 const networkTitle = document.querySelector(".network_title");
 const phoneNumberInput = document.querySelector("#phone");
+network.innerHTML =
+  "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>";
 
-let mtnImageAndTitle, airtelImageAndTitle, nMobileImageAndTitle, gloImageAndTitle;
+let mtnImageAndTitle,
+  airtelImageAndTitle,
+  nMobileImageAndTitle,
+  gloImageAndTitle;
 function checkMobileNetwork(digit) {
   const toNumber = Number(digit);
-
 
   const checkmtn = mtn.find((num) => {
     return num === toNumber;
   });
-  if (checkmtn) {
-    return (mtnImageAndTitle = "/assets/images/mtn.png+MTN");
 
   const checkMtn = mtn.find((num) => num === toNumber);
   if (checkMtn) {
     return (m = "/assets/images/mtn.png+MTN");
-
   }
 
   const checkGlo = glo.find((num) => num === toNumber);
@@ -77,18 +79,18 @@ phoneNumberInput.addEventListener("input", (e) => {
   n = "";
   g = "";
   const value = phoneNumberInput.value;
+
   const firstFourDigit = value.slice(0, 4);
   const frstDigit = value.slice(0, 1);
   const nextThreeDigit = value.slice(1, 4).split("");
   const nextFourDigit = value.slice(4, 7).split("");
   const nextFourdigitfromCountryCode = value.slice(4, 8).split("");
   const nextFourDigitFromNormalPhone = value.slice(1, 5).split("");
-  console.log(nextThreeDigit,nextFourDigit,nextFourDigitFromNormalPhone,nextFourdigitfromCountryCode);
   if (firstFourDigit === "+234" && nextFourdigitfromCountryCode.length === 4) {
     const numCode = checkMobileNetwork(nextFourdigitfromCountryCode.join(""));
     displayNetwork(numCode);
   } else if (firstFourDigit === "+234" && nextFourDigit.length === 3) {
-    const numCode  = checkMobileNetwork(nextFourDigit.join(""));
+    const numCode = checkMobileNetwork(nextFourDigit.join(""));
     displayNetwork(numCode);
   } else if (frstDigit === "0" && nextFourDigitFromNormalPhone.length === 4) {
     const numCode = checkMobileNetwork(nextFourDigitFromNormalPhone.join(""));
@@ -99,18 +101,18 @@ phoneNumberInput.addEventListener("input", (e) => {
     );
     displayNetwork(numCode);
   }
-
-
-  if (firstFourDigit === "+234" && value.length <7){
-    network.innerHTML=""; // clear the image if input is less than 7
-    
+  if (firstFourDigit === "+234" && value.length < 7) {
+    network.innerHTML = ""; // clear the image if input is less than 7
   }
-  if (frstDigit === "0" && value.length < 4){
-    network.innerHTML="";// clear the image if input is less than 6
-}
-  
-  // else if((firstFourDigit === "+234" && value.length < 8) || (frstDigit === "0" && value.length < 4)){
-  //   network.innerHTML = ""
-  // }
-
+  if (frstDigit === "0" && value.length < 4) {
+    network.innerHTML =
+      "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>";
+    // clear the image if input is less than 6
+  } else if (
+    (firstFourDigit === "+234" && value.length < 8) ||
+    (frstDigit === "0" && value.length < 4)
+  ) {
+    network.innerHTML =
+      "<p style='text-align:center;'>Enter a valid phone number to detect  the network provider</p>";
+  }
 });
