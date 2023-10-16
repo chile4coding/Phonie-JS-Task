@@ -85,15 +85,15 @@ airtelImageAndTitle="";
   const firstFourDigit = value.slice(0, 4);
   const frstDigit = value.slice(0, 1);
   const nextThreeDigit = value.slice(1, 4).split("");
-  const nextFourDigit = value.slice(4, 7).split("");
-  const nextFourdigitfromCountryCode = value.slice(4, 8).split("");
+  const secondThreeDigit = value.slice(4, 7).split("");
+  const secondFourdigitfromCountryCode = value.slice(4, 8).split("");
   const nextFourDigitFromNormalPhone = value.slice(1, 5).split("");
-  if (firstFourDigit === "+234" && nextFourdigitfromCountryCode.length === 4) {
+  if (firstFourDigit === "+234" && secondFourdigitfromCountryCode.length === 4) {
 
-    const numCode = checkMobileNetwork(nextFourdigitfromCountryCode.join(""));
+    const numCode = checkMobileNetwork(secondFourdigitfromCountryCode.join(""));
     console.log(numCode)
     displayNetwork(numCode);
-  } else if (firstFourDigit === "+234" && nextFourDigit.length === 3) {
+  } else if (firstFourDigit === "+234" && secondThreeDigit.length === 3) {
     const numCode = checkMobileNetwork(nextFourDigit.join(""));
     displayNetwork(numCode);
   } else if (frstDigit === "0" && nextFourDigitFromNormalPhone.length === 4) {
