@@ -84,15 +84,8 @@ input:hover, input:focus{
   height: 100%;
   margin: auto auto;
 }
-
-.network_title {
-  text-align: center;
-}
-.network_logo--container {
-  max-height: 4rem;
-  max-width: 4rem;
-  margin: 0 auto;
-  border-radius: 10px;
+.network p{
+  text-align:center;
 }
 img {
   width: 100%;
