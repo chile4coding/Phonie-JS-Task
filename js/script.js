@@ -18,45 +18,25 @@ const phoneNumberInput = document.querySelector("#phone");
 networkWriteUp.style.display = "block";
 networkLogo.style.display = "none";
 
-let mtnImageAndTitle,
-  airtelImageAndTitle,
-  nMobileImageAndTitle,
-  gloImageAndTitle;
+const networkLogoLinks = {
+  mtn: "/assets/images/mtn.png+MTN",
+  glo: "/assets/images/glo.png+Glo",
+  nineMobile: "/assets/images/9mobile.jpeg+9Mobile",
+  airtel: "/assets/images/airtel.jpg+Airtel",
+};
 function checkMobileNetwork(digit) {
   const toNumber = Number(digit);
-
-  const checkMtn = mtn.find((num) => num === toNumber);
-  console.log(checkMtn);
-  if (checkMtn) {
-    return (mtnImageAndTitle = "/assets/images/mtn.png+MTN");
-  }
-  console.log("here i came here");
-  const checkGlo = glo.find((num) => num === toNumber);
-
-  if (checkGlo) {
-    return (gloImageAndTitle = "/assets/images/glo.png+Glo");
-  }
-
-  const checkNineMobile = nineMobile.find((num) => num === toNumber);
-
-  if (checkNineMobile) {
-    return (nMobileImageAndTitle = "/assets/images/9mobile.jpeg+9Mobile");
-  }
-  const checkAirtel = airtel.find((num) => num === toNumber);
-  if (checkAirtel) {
-    return (airtelImageAndTitle = "/assets/images/airtel.jpg+Airtel");
-  }
-
-  return (
-    mtnImageAndTitle ||
-    airtelImageAndTitle ||
-    gloImageAndTitle ||
-    nMobileImageAndTitle
-  );
+  const checkMtn = mtn.find((num) => num === toNumber) && networkLogoLinks.mtn;
+  const checkGlo = glo.find((num) => num === toNumber) && networkLogoLinks.glo;
+  const checkNineMobile =
+    nineMobile.find((num) => num === toNumber) && networkLogoLinks.nineMobile;
+  const checkAirtel =
+    airtel.find((num) => num === toNumber) && networkLogoLinks.airtel;
+  let lastCheck = checkMtn || checkGlo || checkNineMobile || checkAirtel;
+  return lastCheck;
 }
 
 function displayNetwork(image) {
-  console.log(image, "inside image");
   if (!image) return;
   const [logo, title] = image.split("+");
   networkWriteUp.style.display = "none";
@@ -90,9 +70,7 @@ phoneNumberInput.addEventListener("input", (e) => {
     const numCode = checkMobileNetwork(nextFourDigitFromNormalPhone.join(""));
     displayNetwork(numCode);
   } else if (frstDigit === "0" && nextThreeDigit.length === 3) {
-    const numCode = checkMobileNetwork(
-      checkMobileNetwork(nextThreeDigit.join(""))
-    );
+    const numCode = checkMobileNetwork(nextThreeDigit.join(""));
     displayNetwork(numCode);
   }
   if (firstFourDigit === "+234" && value.length < 7) {
