@@ -1,6 +1,6 @@
 # Phonie-JS-Task
 # Instructions
-1. clone the repository to your local machine 
+1. clone the repository to your local machine
 ````
 git clone https://github.com/chile4coding/Phonie-JS-Task.git
 
@@ -13,4 +13,4 @@ git switch example
 ````
 3. push to your branch and create a pull request
 
-enjoy!   
+enjoy coding!
