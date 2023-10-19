@@ -15,14 +15,15 @@ const network = document.querySelector(".network");
 const networkLogo = document.querySelector("#network_logo");
 const networkWriteUp = document.querySelector("#networkWriteUp");
 const phoneNumberInput = document.querySelector("#phone");
+const body = document.querySelector(".body");
 networkWriteUp.style.display = "block";
 networkLogo.style.display = "none";
 
 const networkLogoLinks = {
-  mtn: "/assets/images/mtn.png+MTN",
-  glo: "/assets/images/glo.png+Glo",
-  nineMobile: "/assets/images/9mobile.jpeg+9Mobile",
-  airtel: "/assets/images/airtel.jpg+Airtel",
+  mtn: "/assets/images/mtn.png+MTN+#ffda29",
+  glo: "/assets/images/glo.png+Glo+#72AE49",
+  nineMobile: "/assets/images/9mobile.jpeg+9Mobile+#006400",
+  airtel: "/assets/images/airtel.jpg+Airtel+#FF0000",
 };
 function checkMobileNetwork(digit) {
   const toNumber = Number(digit);
@@ -38,10 +39,11 @@ function checkMobileNetwork(digit) {
 
 function displayNetwork(image) {
   if (!image) return;
-  const [logo, title] = image.split("+");
+  const [logo, title, colour] = image.split("+");
   networkWriteUp.style.display = "none";
   networkLogo.setAttribute("src", logo);
   networkLogo.style.display = "block";
+  body.style.backgroundColor = colour
 }
 
 phoneNumberInput.addEventListener("input", (e) => {
