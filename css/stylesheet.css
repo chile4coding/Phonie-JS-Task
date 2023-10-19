@@ -9,7 +9,28 @@ body {
   min-height: 100vh;
   background-color: #f0f0f0;
 }
+#sign{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    margin: 0;
+    box-shadow: 10px, 10px, 10px, rgba(5, 5, 5, 5);
+    border-radius: 20px;
 
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-name:slidein;
+   }
+   
+   @keyframes slidein {
+     from {
+       margin-left: 300%;
+       width: 20%;
+     }
+   
+}
 .main-card {
   display: flex;
   background-color: rgb(221, 218, 218);
