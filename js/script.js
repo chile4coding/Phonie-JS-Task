@@ -18,7 +18,7 @@ const phoneNumberInput = document.querySelector("#phone");
 const body = document.querySelector(".body");
 
 const originBgColour = "#f0f0f0";
-=======
+
 
 networkWriteUp.style.display = "block";
 networkLogo.style.display = "none";
@@ -56,14 +56,14 @@ phoneNumberInput.addEventListener("input", (e) => {
   nMobileImageAndTitle = "";
   gloImageAndTitle = "";
   const value = phoneNumberInput.value;
-
   const firstFourDigit = value.slice(0, 4);
   const frstDigit = value.slice(0, 1);
   const nextThreeDigit = value.slice(1, 4).split("");
   const secondThreeDigit = value.slice(4, 7).split("");
   const secondFourdigitfromCountryCode = value.slice(4, 8).split("");
   const nextFourDigitFromNormalPhone = value.slice(1, 5).split("");
-  if (
+  const numVal = value
+   if (
     firstFourDigit === "+234" &&
     secondFourdigitfromCountryCode.length === 4
   ) {
