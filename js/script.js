@@ -16,6 +16,10 @@ const networkLogo = document.querySelector("#network_logo");
 const networkWriteUp = document.querySelector("#networkWriteUp");
 const phoneNumberInput = document.querySelector("#phone");
 const body = document.querySelector(".body");
+
+const originBgColour = "#f0f0f0";
+=======
+
 networkWriteUp.style.display = "block";
 networkLogo.style.display = "none";
 
@@ -78,11 +82,13 @@ phoneNumberInput.addEventListener("input", (e) => {
   if (firstFourDigit === "+234" && value.length < 7) {
     networkWriteUp.style.display = "block";
     networkLogo.style.display = "none";
+    body.style.backgroundColor = originBgColour;
     // clear the image if input is less than 7
   }
   if (frstDigit === "0" && value.length < 4) {
     networkWriteUp.style.display = "block";
     networkLogo.style.display = "none";
+    body.style.backgroundColor = originBgColour;
     // clear the image if input is less than 6
   }
 });

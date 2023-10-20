@@ -110,8 +110,9 @@ input:hover, input:focus{
 }
 img {
   width: 80%;
-  height: 80%;
-}
+
+  height: 50%;
+
 @media (max-width: 600px) {
   .main-card {
     flex-direction: column;
